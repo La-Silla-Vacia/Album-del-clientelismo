@@ -1,10 +1,11 @@
 @import '../variables.css';
 
 .container {
-  width: 95em;
+  width: 1013px;
   max-width: 100%;
   margin: 0 auto;
   position: relative;
+  padding-bottom: 70px;
 }
 
 .tableLayout {
@@ -314,6 +315,7 @@
   max-width: 700px;
   margin-right: 10%;
   padding-left: 1em;
+  /*margin-left: 2.8em;*/
 }
 
 @media screen and (max-width: 768px) {

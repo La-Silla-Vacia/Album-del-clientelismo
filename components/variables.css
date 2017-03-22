@@ -10,7 +10,7 @@
   --brand-lightgrey: #d9ddde;
   --brand-black: #2d3132;
   --brand-white: #fff;
-  --brand-red: #C00D0D;
+  --brand-red: rgb(246, 178, 35);
   --text-color: var(--brand-black);
   --font-family-base: 'Roboto', Helvetica, sans-serif;
   --font-family-display: 'Roboto Slab', Georgia, sans-serif;

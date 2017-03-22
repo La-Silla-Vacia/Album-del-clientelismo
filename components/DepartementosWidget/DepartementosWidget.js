@@ -14,7 +14,7 @@ class Navigation extends React.Component {
 
     this.state = {
       departementos: [],
-      departemento: 'Bogotá',
+      departemento: 'Antioquia',
       columns: 0,
       legendItems: [],
       context: [],
@@ -101,8 +101,8 @@ class Navigation extends React.Component {
 
       item.itterator = i;
 
-      if (item.fotoDeLaCabeza === '') item.fotoDeLaCabeza = './images/avatars/undefined.jpg';
-      if (item.fotoDelPadrino === '') item.fotoDelPadrino = './images/avatars/undefined.jpg';
+      if (item.fotoDeLaCabeza === '') item.fotoDeLaCabeza = 'http://archivo.lasillavacia.com/archivos/historias/clientelismo2017/padrinos/1.jpg';
+      if (item.fotoDelPadrino === '') item.fotoDelPadrino = 'http://archivo.lasillavacia.com/archivos/historias/clientelismo2017/padrinos/1.jpg';
     }
 
     this.setState({context: data});
@@ -122,7 +122,6 @@ class Navigation extends React.Component {
     } else {
       const parrafo = this.state.context[index].parrafo;
       const content = md.render(parrafo);
-      console.log(content);
       this.setState({
         activeRow: index,
         activeContent: content
@@ -283,7 +282,7 @@ class Navigation extends React.Component {
     const select = (
       <Select
         className={s.select}
-        value="Bogotá"
+        value="Antioquia"
         options={this.state.departementos}
         callback={this.switchOption}
       />
@@ -300,8 +299,8 @@ class Navigation extends React.Component {
 
     return (
       <Widget
-        upperTitle="Lorem ipsum"
-        upperDescription="Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros."
+        upperTitle="Las entidades y sus padrinos"
+        upperDescription="No todas las cabezas de las entidades tienen padrino, ni todas las relaciones con ellos son iguales, ni la plata que manejan es la misma. Encuentre acá todos esos datos (en el filtro de la derecha puede cambiar de región)."
         title="Filtre por"
         select={select}
         floatTitle

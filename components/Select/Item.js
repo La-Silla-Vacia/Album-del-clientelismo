@@ -1,8 +1,9 @@
 import React from 'react';
 import cx from 'classnames';
+
 import s from './Select.css';
 
-class Item extends React.Component {
+class SelectItem extends React.Component {
 
   constructor() {
     super();
@@ -21,11 +22,12 @@ class Item extends React.Component {
     return (
       <button
         className={cx(s.option)}
-        onClick={this.handleClick.bind(this)}>
+        onClick={this.handleClick}
+      >
         {this.props.children}
       </button>
     );
   }
 }
 
-export default Item;
+export default SelectItem;

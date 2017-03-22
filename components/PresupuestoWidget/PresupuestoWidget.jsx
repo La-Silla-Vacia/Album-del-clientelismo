@@ -13,7 +13,7 @@ class PresupuestoWidget extends React.Component {
     this.state = {
       selectOptions: [
         {
-          label: "Partido Póliticos",
+          label: "Partidos Políticos",
           value: "partidoPolitico",
         },
         {
@@ -38,7 +38,7 @@ class PresupuestoWidget extends React.Component {
   }
 
   switchOption(e) {
-    this.setState({viewType: e.value});
+    this.setState({ viewType: e.value });
     setTimeout(() => {
       this.formatData(this.state.data);
     }, 10);
@@ -50,14 +50,14 @@ class PresupuestoWidget extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({data: nextProps.data});
+    this.setState({ data: nextProps.data });
     this.formatData(nextProps.data);
   }
 
   createWidget() {
     const nodes = [];
     const data = this.state.formattedData;
-    this.setState({'legendItems': data.legendItems});
+    this.setState({ 'legendItems': data.legendItems });
 
     const tree = {
       "children": data.children
@@ -91,7 +91,7 @@ class PresupuestoWidget extends React.Component {
       })
       .remove();
 
-    this.setState({nodes});
+    this.setState({ nodes });
   }
 
   formatData(data) {
@@ -142,12 +142,12 @@ class PresupuestoWidget extends React.Component {
           };
 
           children.push(newEl);
-          legendItems.push({name: category, colorPartido: color, nodeId: index + 1});
+          legendItems.push({ name: category, colorPartido: color, nodeId: index + 1 });
         }
       }
     });
 
-    this.setState({formattedData: {children, legendItems}});
+    this.setState({ formattedData: { children, legendItems } });
     setTimeout(() => {
       this.createWidget();
     }, 10);
@@ -169,7 +169,7 @@ class PresupuestoWidget extends React.Component {
   }
 
   mouseMove(e) {
-    console.log(e.target);
+    // console.log(e.target);
   }
 
   getNodes() {
@@ -180,22 +180,29 @@ class PresupuestoWidget extends React.Component {
       const amoundOfMoney = Math.round(node.presupuestoDeInversion / 1000000000);
 
       let hideTitle = false;
-      if (node.dx < 150 || node.dy < 130) hideTitle = true;
+      if (node.dx < 200 || node.dy < 130) hideTitle = true;
 
       let hideMoney = false;
       if (node.dx < 200 || node.dy < 130) hideMoney = true;
       // console.log(node);
       return (
-        <div onMouseEnter={this.mouseMove} className={s.node} key={index} style={{
-          backgroundColor: backgroundColor,
-          fontSize: fontSize,
-          height: node.dy,
-          width: node.dx,
-          right: node.x,
-          top: node.y,
-        }}>
-          <h3 className={cx(s.partido, {[s.partido__hidden]: hideTitle})}>{node.categoryName}</h3>
-          <span className={cx(s.money, {[s.money__hidden]: hideMoney})}>{amoundOfMoney} Mil Millones</span>
+        <div
+          onMouseEnter={this.mouseMove}
+          className={s.node}
+          key={index}
+          style={{
+            backgroundColor: backgroundColor,
+            fontSize: fontSize,
+            height: node.dy,
+            width: node.dx,
+            right: node.x,
+            top: node.y,
+          }}
+        >
+          <div className={cx({ [s.tooltip]: hideTitle })}>
+            <h3 className={cx(s.partido, { [s.partido__hidden]: hideTitle })}>{node.categoryName}</h3>
+            <span className={cx(s.money, { [s.money__hidden]: hideMoney })}>{amoundOfMoney} Mil Millones</span>
+          </div>
         </div>
       )
     });
@@ -205,7 +212,7 @@ class PresupuestoWidget extends React.Component {
     const select = (
       <Select
         className={s.select}
-        value="Partido Pólitico"
+        value="Partidos Político"
         options={this.state.selectOptions}
         callback={this.switchOption}
       />
@@ -217,7 +224,7 @@ class PresupuestoWidget extends React.Component {
     return (
       <Widget
         upperTitle="Presupuesto"
-        upperDescription="Donec sed odio dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper nulla non metus auctor fringilla. Aenean lacinia bibendum nulla sed consectetur."
+        upperDescription="Al sumar todo el presupuesto les va mejor a algunos partidos, y tienen más pesos algunas entidades y algunos departamentos."
         title="Presupuesto por %s"
         select={select}
         floatTitle

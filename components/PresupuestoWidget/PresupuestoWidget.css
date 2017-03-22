@@ -52,9 +52,62 @@
   padding-left: 1em;
 }
 
-
 .legend {
   max-width: 700px;
   margin-right: 10%;
   padding-left: 1em;
+  margin-left: 2.8em;
+}
+
+@media screen and (max-width: 1280px) {
+  .legend {
+    margin-left: 0;
+  }
+}
+
+.node .tooltip {
+  transform:  translateY(-50%);
+  opacity: 0;
+  transition: .4s opacity, .4s right;
+  position: absolute;
+  background: white;
+  right: 0;
+  z-index: 10;
+  width: 200px;
+  border-radius: 3px;
+  padding: 1em;
+  top: 50%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateX(100%) translateY(-50%);
+    background: url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2212px%22%20height%3D%2236px%22%3E%3Cpath%20fill%3D%22rgba%28255,%20255,%20255,%2001%29%22%20transform%3D%22rotate%28-90%2018%2018%29%22%20d%3D%22M2.658,0.000%20C-13.615,0.000%2050.938,0.000%2034.662,0.000%20C28.662,0.000%2023.035,12.002%2018.660,12.002%20C14.285,12.002%208.594,0.000%202.658,0.000%20Z%22/%3E%3C/svg%3E') no-repeat;
+    background-size: 100% auto;
+    height: 18px;
+    width: 6px;
+    margin-bottom: 0;
+  }
+
+
+  & .partido,
+  & .money {
+    opacity: 1;
+    color: black;
+  }
+
+  & .money {
+    font-size: 1.4em;
+  }
+}
+
+.node:hover {
+  overflow: visible;
+  & .tooltip {
+    transform: translateY(-50%);
+    right: 75%;
+    opacity: 1;
+  }
 }

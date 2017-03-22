@@ -204,8 +204,8 @@ class PartipacionWidget extends React.Component {
 
     return (
       <Widget
-        upperTitle="Clientelismo en los Partidos"
-        upperDescription="Seleccione un filtro para ver la participación de los partidos políticos por entidad y por departamento. Al hacer clic en cada relación usted podrá ver cuánto es su presupuesto."
+        upperTitle="Los partidos y sus fichas"
+        upperDescription="Sumando entidades y padrinos, los partidos terminan manejando presupuestos importantes. Acá puede ver, por presupuesto de inversión, cuánto mueven por entidad y por región."
         title="Filtre por %s"
         select={select}
         floatTitle

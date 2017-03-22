@@ -1,7 +1,8 @@
 import React from 'react';
-import cx from 'classnames';
-import Item from './Item';
+import classNames from 'classnames';
+import { VelocityComponent, VelocityTransitionGroup } from 'velocity-react';
 import s from './Select.css';
+import Item from './Item';
 
 class Select extends React.Component {
 
@@ -10,21 +11,70 @@ class Select extends React.Component {
 
     this.state = {
       open: false,
-      currentOption: "",
+      currentOption: 'aa',
       options: [],
+      duration: 250
     };
 
-    this.openSelect = this.openSelect.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.onHandleClick = this.onHandleClick.bind(this);
+    this.handleOpenSelect = this.handleOpenSelect.bind(this);
+  }
+
+  componentWillMount() {
+    this.setState({
+      currentOption: this.props.value,
+      options: this.props.options
+    });
+  }
+
+  componentWillReceiveProps(newprops) {
+    if (newprops.options.length > this.state.options.length) {
+      this.setState({ options: newprops.options });
+      this.setState({ currentOption: newprops.value });
+    }
+  }
+
+  onHandleClick(option) {
+    const selectedOption = option;
+
+    this.setState({
+      currentOption: selectedOption.label
+    });
+    this.props.callback(selectedOption);
+
+    const optionIndex = this.state.options.indexOf(selectedOption);
+    const newOptions = [
+      this.props.options[optionIndex]
+    ];
+
+    for (let i = 0; i < this.props.options.length; i += 1) {
+      if (i !== optionIndex) {
+        newOptions.push(this.props.options[i]);
+      }
+    }
+    this.setState({ options: newOptions });
+    this.setState({ open: false });
+  }
+
+  handleOpenSelect() {
+    let open = true;
+    if (this.state.open) {
+      open = false;
+    }
+
+    this.setState({
+      open
+    });
   }
 
   getOptions() {
     return this.state.options.map((option, index) => {
+      if (option.label === this.state.currentOption) return false;
       return (
         <Item
           key={index}
           value={option}
-          callback={this.handleClick}
+          callback={this.onHandleClick}
         >
           {option.label}
         </Item>
@@ -32,60 +82,37 @@ class Select extends React.Component {
     });
   }
 
-  handleClick(option) {
-    this.setState({
-      currentOption: option.label
-    });
-    this.props.callback(option);
-
-    const optionIndex = this.state.options.indexOf(option);
-    const newOptions = [
-      this.props.options[optionIndex]
-    ];
-
-    for (let i = 0; i < this.props.options.length; i += 1) {
-      if (i != optionIndex)
-        newOptions.push(this.props.options[i]);
-    }
-    this.setState({options: newOptions});
-    this.setState({open: false});
-  }
-
-  componentWillMount() {
-    this.setState({currentOption: this.props.value});
-  }
-
-  componentWillReceiveProps(newprops) {
-    if (newprops.options.length > this.state.options.length) {
-      this.setState({options: newprops.options});
-    }
-  }
-
   render() {
-    const options = this.getOptions();
+    const className = classNames(s.container, { [s.container__open]: this.state.open }, this.props.className);
 
     return (
-      <div className={cx(s.root, {[s.root__open]: this.state.open})}
-           onClick={this.openSelect}
-           onKeyDown={this.openSelect} tabIndex="0">
-        <span>{this.state.currentOption}</span>
-        <div className={s.inner}>
-          {options}
-        </div>
+      <div className={className}>
+        <button
+          className={classNames(s.option, s.current)}
+          onClick={this.handleOpenSelect}
+        >
+          {this.state.currentOption}
+          <VelocityComponent
+            animation={{ rotateZ: this.state.open ? 225 : 45, marginTop: this.state.open ? -4 : 0 }}
+            duration={this.state.duration / 2}
+          >
+            <div className={classNames(s.triangle)} />
+          </VelocityComponent>
+        </button>
+
+        <div className={classNames(s.clearfix)} />
+
+        <VelocityTransitionGroup
+          component="div"
+          className={classNames(s.group)}
+          enter={{ animation: 'slideDown', duration: this.state.duration, style: { height: '' } }}
+          leave={{ animation: 'slideUp', duration: this.state.duration }}
+        >
+          {this.state.open ? this.getOptions() : null}
+        </VelocityTransitionGroup>
       </div>
     );
   }
-
-  openSelect(e) {
-    if (e.type === "keydown") {
-      if (e.keyCode === 13) {
-        this.setState({open: !this.state.open});
-      }
-    } else {
-      this.setState({open: !this.state.open});
-    }
-  }
-
 }
 
 export default Select;
