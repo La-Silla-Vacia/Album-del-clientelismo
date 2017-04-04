@@ -212,7 +212,7 @@ class PresupuestoWidget extends React.Component {
     const select = (
       <Select
         className={s.select}
-        value="Partidos Político"
+        value="Partidos Políticos"
         options={this.state.selectOptions}
         callback={this.switchOption}
       />
@@ -225,9 +225,10 @@ class PresupuestoWidget extends React.Component {
       <Widget
         upperTitle="Presupuesto"
         upperDescription="Al sumar todo el presupuesto les va mejor a algunos partidos, y tienen más pesos algunas entidades y algunos departamentos."
-        title="Presupuesto por %s"
+        title="Filtre por %s"
         select={select}
         floatTitle
+        id="presupuesto"
       >
 
         <div className={s.legend}>

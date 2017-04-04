@@ -22,7 +22,7 @@ class Header extends React.Component {
       </h2>);
 
     return (
-      <section className={cx(s.root, {[s.root__full_width]: this.props.fullWidth})}>
+      <section id={this.props.id} className={cx(s.root, {[s.root__full_width]: this.props.fullWidth})}>
         <div className={s.upperTitle}>
           <span />
           <h2>

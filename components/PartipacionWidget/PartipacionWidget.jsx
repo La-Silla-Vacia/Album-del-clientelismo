@@ -209,6 +209,7 @@ class PartipacionWidget extends React.Component {
         title="Filtre por %s"
         select={select}
         floatTitle
+        id="partidos-y-sus-fichas"
       >
         <div className={s.legend}>
           <Legend

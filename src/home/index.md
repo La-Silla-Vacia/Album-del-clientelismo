@@ -3,5 +3,5 @@ title: Álbum del clientelismo
 
 ---
 
-# Álbum del clientelismo
-## Como se mueve la politíca en Colombia
+# Cuotas políticas en las regiones
+## Así se mueve la politíca en Colombia

@@ -300,7 +300,7 @@ class Navigation extends React.Component {
     return (
       <Widget
         upperTitle="Las entidades y sus padrinos"
-        upperDescription="No todas las cabezas de las entidades tienen padrino, ni todas las relaciones con ellos son iguales, ni la plata que manejan es la misma. Encuentre acá todos esos datos (en el filtro de la derecha puede cambiar de región)."
+        upperDescription="No todas las cabezas de las entidades tienen padrino, ni todas las relaciones con ellos son iguales, ni la plata que manejan es la misma. Encuentre acá todos esos datos (en el filtro de la derecha puede cambiar de región). Haga click en el gráfico para leer la información detallada."
         title="Filtre por"
         select={select}
         floatTitle

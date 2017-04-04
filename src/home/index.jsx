@@ -18,8 +18,6 @@ class HomePage extends React.Component {
   }
 
   componentDidMount() {
-    document.title = title;
-
     this.getData();
   }
 
@@ -39,7 +37,6 @@ class HomePage extends React.Component {
   render() {
     return (
       <Layout>
-        <div className={s.content} dangerouslySetInnerHTML={{ __html: html }} />
         <Departementos data={this.state.data} />
         <Partipacion data={this.state.data} width="1112" height="650" />
         <Presupuesto data={this.state.data} />
