@@ -14,7 +14,7 @@ class Navigation extends React.Component {
 
     this.state = {
       departementos: [],
-      departemento: 'Antioquia',
+      departemento: 'Cundinamarca',
       columns: 0,
       legendItems: [],
       context: [],
@@ -282,7 +282,7 @@ class Navigation extends React.Component {
     const select = (
       <Select
         className={s.select}
-        value="Antioquia"
+        value="Cundinamarca"
         options={this.state.departementos}
         callback={this.switchOption}
       />

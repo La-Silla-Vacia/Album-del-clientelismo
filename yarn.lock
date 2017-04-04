@@ -1933,6 +1933,28 @@ cycle@1.0.x:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/cycle/-/cycle-1.0.3.tgz#21e80b2be8580f98b468f379430662b046c34ad2"
 
+d3-plugins-sankey@^1.2.1, d3-plugins-sankey@~1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/d3-plugins-sankey/-/d3-plugins-sankey-1.2.1.tgz#14c22c8aaaebef361174c970d836dc501ec01e2e"
+  dependencies:
+    d3 "3"
+
+d3.chart.sankey@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/d3.chart.sankey/-/d3.chart.sankey-0.4.0.tgz#d1fc9f2112c68938e9e89dc7996e9376f99c373b"
+  dependencies:
+    d3 "3"
+    d3-plugins-sankey "~1.2.1"
+    d3.chart "~0.3.0"
+
+d3.chart@~0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/d3.chart/-/d3.chart-0.3.0.tgz#8701e5662f0166ca8166e53ae834d4861ac08e8c"
+
+d3@3:
+  version "3.5.17"
+  resolved "https://registry.yarnpkg.com/d3/-/d3-3.5.17.tgz#bc46748004378b21a360c9fc7cf5231790762fb8"
+
 d@^0.1.1, d@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/d/-/d-0.1.1.tgz#da184c535d18d8ee7ba2aa229b914009fae11309"
@@ -4007,9 +4029,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-markdown-it@^8.2.2:
-  version "8.2.2"
-  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.2.2.tgz#e39593d976f9c4b7ee7f338a3a1e9e10c3db4e36"
+markdown-it@^8.3.1:
+  version "8.3.1"
+  resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.3.1.tgz#2f4b622948ccdc193d66f3ca2d43125ac4ac7323"
   dependencies:
     argparse "^1.0.7"
     entities "~1.1.1"
@@ -4308,6 +4330,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+normalize.css@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/normalize.css/-/normalize.css-5.0.0.tgz#7cec875ce8178a5333c4de80b68ea9c18b9d7c37"
 
 npmlog@^4.0.1:
   version "4.0.2"
@@ -5152,6 +5178,13 @@ rc@^1.0.1, rc@^1.1.6, rc@~1.1.6:
     ini "~1.3.0"
     minimist "^1.2.0"
     strip-json-comments "~1.0.4"
+
+"react-addons-transition-group@^0.14.0 || ^15.0.0":
+  version "15.5.0"
+  resolved "https://registry.yarnpkg.com/react-addons-transition-group/-/react-addons-transition-group-15.5.0.tgz#4a7dd48d2061f49a8977396f9e7c3f40f1b07a40"
+  dependencies:
+    fbjs "^0.8.4"
+    object-assign "^4.1.0"
 
 react-deep-force-update@^2.0.1:
   version "2.0.1"
@@ -6445,6 +6478,18 @@ value-equal@^0.2.0:
 vary@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.0.tgz#e1e5affbbd16ae768dd2674394b9ad3022653140"
+
+velocity-animate@^1.4.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.0.tgz#fc8771d8dfe1136ff02a707e10fbb0957c4b030f"
+
+velocity-react@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/velocity-react/-/velocity-react-1.2.1.tgz#d0cb59289a3b666c596da109d5f541d6e6f8ad98"
+  dependencies:
+    lodash "^3.10.1"
+    react-addons-transition-group "^0.14.0 || ^15.0.0"
+    velocity-animate "^1.4.0"
 
 vendors@^1.0.0:
   version "1.0.1"
